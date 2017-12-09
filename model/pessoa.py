@@ -1,5 +1,3 @@
-from model.projeto import Projeto
-
 class Pessoa(object):
 
     def __init__(self, pessoa_id, nome, departamento, email, projetos):

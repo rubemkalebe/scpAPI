@@ -14,5 +14,3 @@ class Projeto(object):
         self.equipe = equipe
         self.entregaveis = entregaveis
         self.mudancas = mudancas
-
-
