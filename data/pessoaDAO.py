@@ -62,6 +62,8 @@ class PessoaDAO(object):
                 '''
                 cursor.execute(sql, (email,))
                 result = cursor.fetchone()
-                return result
+
+                p = Pessoa(result[0], result[1], result[2], result[3], None)
+                return p.__dict__
         finally:
             connection.close()
