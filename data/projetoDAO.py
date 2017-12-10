@@ -1,5 +1,7 @@
 import data.data_helper
 
+from model.projeto import Projeto
+
 class ProjetoDAO(object):
 
     def insert(self, p):
@@ -39,7 +41,13 @@ class ProjetoDAO(object):
                 '''
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                return result
+
+                projetos = []
+                for r in result:
+                    p = Projeto(r[0], r[1], r[2], r[3], r[4], r[5], None, None)
+                    projetos.append(p.__dict__)
+
+                return projetos
         finally:
             connection.close()
 
@@ -76,3 +84,16 @@ class ProjetoDAO(object):
                 return result
         finally:
             connection.close()
+
+
+'''
+SELECT *
+FROM Projeto JOIN Pessoa
+ON Projeto.idPatrocinador=Pessoa.idPessoa
+WHERE Pessoa.email='rubem@email.com'
+UNION
+SELECT *
+FROM Projeto JOIN Pessoa
+ON Projeto.idGerente=Pessoa.idPessoa
+WHERE Pessoa.email='rubem@email.com';
+'''
