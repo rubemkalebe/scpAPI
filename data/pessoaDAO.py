@@ -10,7 +10,7 @@ class PessoaDAO(object):
             with connection.cursor() as cursor:
                 # create a new record
                 sql = '''
-                    INSERT INTO scp.Pessoa (nome, departamento, email)
+                    INSERT INTO Pessoa (nome, departamento, email)
                     VALUES (%s, %s, %s)
                 '''
                 cursor.execute(sql, (
@@ -33,7 +33,7 @@ class PessoaDAO(object):
             with connection.cursor() as cursor:
                 sql = '''
                     SELECT *
-                    FROM scp.Pessoa
+                    FROM Pessoa
                 '''
                 cursor.execute(sql)
                 result = cursor.fetchall()
@@ -49,7 +49,7 @@ class PessoaDAO(object):
             with connection.cursor() as cursor:
                 sql = '''
                     SELECT idPessoa, nome, departamento, email
-                    FROM scp.Pessoa
+                    FROM Pessoa
                     WHERE email=%s
                 '''
                 cursor.execute(sql, (email,))
