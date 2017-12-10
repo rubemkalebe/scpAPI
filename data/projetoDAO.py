@@ -58,7 +58,7 @@ class ProjetoDAO(object):
         try:
             with connection.cursor() as cursor:
                 sql = '''
-                    SELECT nome
+                    SELECT *
                     FROM Projeto
                     WHERE idGerente=%s
                 '''
@@ -81,7 +81,7 @@ class ProjetoDAO(object):
         try:
             with connection.cursor() as cursor:
                 sql = '''
-                    SELECT nome
+                    SELECT *
                     FROM Projeto
                     WHERE idPatrocinador=%s
                 '''
