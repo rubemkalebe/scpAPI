@@ -9,6 +9,8 @@ from controller.projeto.projeto_controller import ProjetoController
 from controller.projeto.projeto_by_ger_controller import ProjetoByGerenteController
 from controller.projeto.projeto_by_pat_controller import ProjetoByPatrocinadorController
 
+from controller.entregavel.entregavel_controller import EntregavelController
+
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
 
@@ -23,3 +25,6 @@ app.add_route('/scp/pessoa/email/{email}', PessoaEmailController())
 app.add_route('/scp/projeto', ProjetoController())
 app.add_route('/scp/projeto/gerente/{gerente_id}', ProjetoByGerenteController())
 app.add_route('/scp/projeto/patrocinador/{patrocinador_id}', ProjetoByPatrocinadorController())
+
+# Entregavel
+app.add_route('/scp/entregavel/{projeto_id}', EntregavelController())
