@@ -15,7 +15,7 @@ class EntregavelController(object):
 
     def on_post(self, req, resp, projeto_id):
         payload = req.stream.read().decode('utf-8')
-        data = json.loads(payload, default=str)
+        data = json.loads(payload)
 
         entregavelDAO = EntregavelDAO()
         entregavelDAO.insert(projeto_id, Entregavel(

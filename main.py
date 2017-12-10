@@ -27,4 +27,4 @@ app.add_route('/scp/projeto/gerente/{gerente_id}', ProjetoByGerenteController())
 app.add_route('/scp/projeto/patrocinador/{patrocinador_id}', ProjetoByPatrocinadorController())
 
 # Entregavel
-app.add_route('/scp/entregavel/{projeto_id}', EntregavelController())
+app.add_route('/scp/entregavel/projeto/{projeto_id}', EntregavelController())
