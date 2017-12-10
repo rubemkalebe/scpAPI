@@ -17,3 +17,7 @@
 * Gunicorn
 
     `pip install gunicorn`
+    
+## Execução
+
+`gunicorn main:app --bind=IP_ADDRESS`

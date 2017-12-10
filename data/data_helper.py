@@ -1,8 +1,3 @@
-DB_HOST = 'localhost'
-DB_USER = 'root'
-DB_PASSWORD = 'root'
-DB_NAME = 'scp'
-
 import psycopg2
 
 def create_connection():
