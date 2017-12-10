@@ -1,5 +1,7 @@
 import data.data_helper
 
+from model.pessoa import Pessoa
+
 class PessoaDAO(object):
 
     def insert(self, p):
@@ -37,7 +39,13 @@ class PessoaDAO(object):
                 '''
                 cursor.execute(sql)
                 result = cursor.fetchall()
-                return result
+
+                pessoas = []
+                for r in result:
+                    p = Pessoa(r[0], r[1], r[2], r[3], None)
+                    pessoas.append(p.__dict__)
+
+                return pessoas
         finally:
             connection.close()
 

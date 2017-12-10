@@ -1,5 +1,7 @@
 import data.data_helper
 
+from model.entregavel import Entregavel
+
 class EntregavelDAO(object):
 
     def insert(self, projeto_id, e):
@@ -40,6 +42,12 @@ class EntregavelDAO(object):
                         '''
                 cursor.execute(sql, (projeto_id,))
                 result = cursor.fetchall()
-                return result
+
+                entregaveis = []
+                for r in result:
+                    e = Entregavel(r[2], r[0], r[1], r[3], r[4], r[5], r[6])
+                    entregaveis.append(e.__dict__)
+
+                return entregaveis
         finally:
             connection.close()

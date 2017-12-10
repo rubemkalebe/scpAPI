@@ -64,7 +64,13 @@ class ProjetoDAO(object):
                 '''
                 cursor.execute(sql, (gerente_id,))
                 result = cursor.fetchall()
-                return result
+
+                projetos = []
+                for r in result:
+                    p = Projeto(r[0], r[1], r[2], r[3], r[4], r[5], None, None)
+                    projetos.append(p.__dict__)
+
+                return projetos
         finally:
             connection.close()
 
@@ -81,7 +87,13 @@ class ProjetoDAO(object):
                 '''
                 cursor.execute(sql, (patrocinador_id,))
                 result = cursor.fetchall()
-                return result
+
+                projetos = []
+                for r in result:
+                    p = Projeto(r[0], r[1], r[2], r[3], r[4], r[5], None, None)
+                    projetos.append(p.__dict__)
+
+                return projetos
         finally:
             connection.close()
 
