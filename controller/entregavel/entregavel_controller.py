@@ -1,5 +1,6 @@
 import falcon
 import json
+from bson import json_util
 
 from data.entregavelDAO import EntregavelDAO
 from model.entregavel import Entregavel
@@ -11,7 +12,7 @@ class EntregavelController(object):
         entregaveis = entregavelDAO.retrieve_by_projeto(projeto_id)
 
         resp.status = falcon.HTTP_200 # ok
-        resp.body = json.dumps(entregaveis)
+        resp.body = json.dumps(entregaveis, default=json_util.default)
 
     def on_post(self, req, resp, projeto_id):
         payload = req.stream.read().decode('utf-8')
