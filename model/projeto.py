@@ -1,7 +1,3 @@
-from model.pessoa import Pessoa
-from model.entregavel import Entregavel
-from model.mudanca import Mudanca
-
 class Projeto(object):
 
     def __init__(self, projeto_id, nome, descricao, patrocinador,
